@@ -53,7 +53,7 @@
 
 尝试用qemu+gdb（or ECLIPSE-CDT）调试lab1
 - [x]  
-
+使用了ECLIPSE-CDT调试lab1
 > 
 
 对于如下的代码段，请说明”：“后面的数字是什么含义
