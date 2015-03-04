@@ -110,7 +110,7 @@ list_add_after:表头插入；
 list_add:等于list_add_after；
 list_del:删除空闲链表结点，将结点指向自身，呈空链状态；
 小C程序如下（链表没有数据域）：
-
+...
 #include "list.h"
 #include <cstdio>
 int main() {
@@ -124,6 +124,7 @@ int main() {
     list_del_init(b);
     return 0;
 }
+...
 > 
 
 ---
