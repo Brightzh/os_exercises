@@ -102,7 +102,28 @@ SETGATE(intr, 0,1,2,3);
 
 请分析 [list.h](https://github.com/chyyuu/ucore_lab/blob/master/labcodes/lab2/libs/list.h)内容中大致的含义，并能include这个文件，利用其结构和功能编写一个数据结构链表操作的小C程序
 - [x]  
+- list.h实现了双向链表，其中的函数大概功能如下：
+list_enrty:没有传统的数据域，包含链表结点；
+list_init:初始化链表，指针都指向自己；
+list_add_before:表尾插入；
+list_add_after:表头插入；
+list_add:等于list_add_after；
+list_del:删除空闲链表结点，将结点指向自身，呈空链状态；
+小C程序如下（链表没有数据域）：
 
+#include "list.h"
+#include <cstdio>
+int main() {
+    list_entry *a = new list_entry();
+    list_entry *b = new list_entry();
+    list_entry *c = new list_entry();
+    list_init(a);
+    list_add(a, b);
+    list_add_before(a, c);
+    list_del(c);
+    list_del_init(b);
+    return 0;
+}
 > 
 
 ---
