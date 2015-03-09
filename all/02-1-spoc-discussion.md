@@ -4,9 +4,9 @@
 
 ## 3.1 BIOS
  1. 比较UEFI和BIOS的区别。
- 2. BIOS是固化到主板上的程序，UEFI是在所有平台上一致的操作系统服务。
+ -  BIOS是固化到主板上的程序，UEFI是在所有平台上一致的操作系统服务。
  1. 描述PXE的大致启动流程。
- 2. PXE大致启动流程：设备发送DHCPDISCOVER给DHCP server和 ADS PXE service，DHCP server
+ -  PXE大致启动流程：设备发送DHCPDISCOVER给DHCP server和 ADS PXE service，DHCP server
 
     给设备提供IP地址，ADS PXE service忽略这条信息或者相应DHCPOFFER IP地址。设备发送
 
