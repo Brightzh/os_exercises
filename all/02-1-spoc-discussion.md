@@ -41,6 +41,13 @@
 
     GRUB可以通过链加载将启动程序的控制传递给另一个启动器。
  1. 比较NTLDR和GRUB的功能有差异。
+ 2. GRUB可以放在ESP、MBR/VBR，Floppy；可以从硬盘，第二硬盘，逻辑分区，CD-
+
+    ROM,Floppy,USB,Zip,LAN启动，可以启动MS-DOS,Windows 9x/Me, Linux；NTLDR可以放在
+
+    MBR/VBR，Floopy,不能只放在MBR，可以从硬盘，CD-ROM,Floopy,LAN启动，能启动MS-DOS，
+
+    Windows 9x/Me, Windows NT系列。
  1. 了解u-boot的功能。
 
 ## 3.3 中断、异常和系统调用比较
