@@ -19,6 +19,15 @@
     请求给Controller service，Controller service返回/pxe/boot-vf，PXE启动。
 ## 3.2 系统启动流程
  1. 了解NTLDR的启动流程。
+ 2. NTLDR启动流程：访问引导驱动器上的文件系统，如果windows系统处于休眠状态，
+
+    hiberfil.sys会加载到内存，系统从它离开的地方恢复，如果选择了一个不是基于NT的操作系
+
+    统，NTLDR会加载在boot.ini的相关文件，并给它控制；如果选择了一个基于NT的操作系统，
+
+    NTLDR会运行ntdetectc.com以获取计算机上的硬件信息，开始运行Ntoskrnl.exe，传递给他
+
+    ntdetect.com返回的信息。
  1. 了解GRUB的启动流程。
  1. 比较NTLDR和GRUB的功能有差异。
  1. 了解u-boot的功能。
