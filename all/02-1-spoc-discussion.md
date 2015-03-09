@@ -87,7 +87,7 @@
  ```
  
  1. 通过调试[lab1_ex1](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab1/lab1-ex1.md)了解Linux应用的系统调用执行过程。(w2l1)
- 2. stace：跟踪进程执行时的系统调用和所接收的信号。
+ 2. strace：跟踪进程执行时的系统调用和所接收的信号。
 
  ```
   + 采分点：说明了strace的大致用途，说明了系统调用的具体执行过程（包括应用，CPU硬件，操作系统的执行过程）
