@@ -4,8 +4,19 @@
 
 ## 3.1 BIOS
  1. 比较UEFI和BIOS的区别。
+ 2. BIOS是固化到主板上的程序，UEFI是在所有平台上一致的操作系统服务。
  1. 描述PXE的大致启动流程。
+ 2. PXE大致启动流程：设备发送DHCPDISCOVER给DHCP server和 ADS PXE service，DHCP server
 
+    给设备提供IP地址，ADS PXE service忽略这条信息或者相应DHCPOFFER IP地址。设备发送
+
+    DHCPREQUEST给DHCP server，DHCP server返回DHCPPACK。如果之前ADS PXE service有响应，
+
+    设备发出DHCPREQUEST启动程序给ADS PXE service,ADS PXE service返回DHPACK启动程序路径
+
+    ，TFTP获得STARTNBS启动镜像请求，TFTP发送STARTNBS启动镜像。SRARTNBS发送PXE开机指令
+
+    请求给Controller service，Controller service返回/pxe/boot-vf，PXE启动。
 ## 3.2 系统启动流程
  1. 了解NTLDR的启动流程。
  1. 了解GRUB的启动流程。
