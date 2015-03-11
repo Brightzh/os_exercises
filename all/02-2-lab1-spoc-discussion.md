@@ -53,12 +53,60 @@ lab1中的cprintf函数最终通过哪些外设完成了对字符串的输出？
 
 lab1中printfmt函数用到了可变参，请参考写一个小的linux应用程序，完成实现定义和调用一个可变参数的函数。(spoc)
 - [x]  
+- 使用man va_arg查找到了可变参数的实现和使用方式。需要用到其中的va_start va_arg和va_end函数以及va_list结构体。
+- 下面的程序实现了一个可变参的average函数，其中第一个参数是输入数字的个数num，后面的可变参数需要求平均值的数字，函数求出了其中的平均数并返回。
+
+```
+#include <stdio.h>
+#include <stdarg.h>
+
+double average(int num, ...){
+	double sum = 0.0;
+	va_list valist;
+	
+	va_start(valist, num);
+	int i = 0;
+	for (i = 0; i< num; i++){
+		sum += va_arg(valist, int);
+	}
+
+	va_end(valist);
+	return sum / num;
+}
+
+int main(){
+	printf("The average: %lf\n", average(4, 2, 3, 4, 5));
+	printf("The average: %lf\n", average(3, 1, 2, 3));
+}
+```
 
 
 
 如果让你来一个阶段一个阶段地从零开始完整实现lab1（不是现在的填空考方式），你的实现步骤是什么？（比如先实现一个可显示字符串的bootloader（描述一下要实现的关键步骤和需要注意的事项），再实现一个可加载ELF格式文件的bootloader（再描述一下进一步要实现的关键步骤和需要注意的事项）...） (spoc)
 - [x]  
+- 先实现一个可显示字符串的bootloader
 
+	初始化寄存器内容
+	
+	完成实模式到保护模式的转换
+	
+	在保护模式下通过PIO方式控制串口、并口和CGA等进行字符串输出
+
+- 再实现一个可加载ELF格式文件的bootloader
+
+	bootloader访问硬盘，读取扇区
+	
+	bootloader可以加载ELF格式文件，是读取ELF Header
+
+- 实现显示函数调用关系的ucore
+	
+	根据GCC生成的栈构建代码、函数参数压栈约定和实际函数调用过程中的栈结构内存空间，分析并显示函数调用关系
+	
+- 实现可管理中断并处理中断方式I/O的ucore
+
+	初始化中断，涉及初始化中断控制器8259A（打通外设与CPU的通路）和中断门描述符表（建立外设中断与中断服务例程的联系）和各种外设
+	
+	中断服务，即收到中断后，实现对中断进行处理的中断服务例程。
 > 
 
 
